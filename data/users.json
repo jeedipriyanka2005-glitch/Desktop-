@@ -1,0 +1,16 @@
+[
+  {
+    "id": "t1",
+    "name": "Alice Teacher",
+    "email": "teacher@example.com",
+    "role": "teacher",
+    "passwordHash": "$2b$10$wbIbmJq/yL1b1DiSUKRZ5eV2sgaeFX/VUFeZO.45FCnU.xB1Gxxmy"
+  },
+  {
+    "id": "s1",
+    "name": "Bob Student",
+    "email": "student@example.com",
+    "role": "student",
+    "passwordHash": "$2b$10$L30CSXsTr2Cnz8Uqt1iI0OGMl6oT0kFa/STRQ6QCbRsc5hCfP9.Km"
+  }
+]
