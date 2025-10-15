@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Assignments</h2>
+{% if assignments %}
+  <ul class="list">
+    {% for a in assignments %}
+      <li>
+        <a href="/assignments/{{ a.id }}">{{ a.title }}</a>
+        {% if a.due_date %}<span class="muted">(due {{ a.due_date }})</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted">No assignments yet. Create one.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ assignment.title }}</h2>
+{% if assignment.description %}
+<p>{{ assignment.description }}</p>
+{% endif %}
+{% if assignment.due_date %}
+<p class="muted">Due: {{ assignment.due_date }}</p>
+{% endif %}
+
+<div class="grid">
+  <section>
+    <h3>Submit</h3>
+    <form method="post" action="/assignments/{{ assignment.id }}/submit" enctype="multipart/form-data" class="card">
+      <label>Your name
+        <input type="text" name="student_name" required />
+      </label>
+      <label>Your email
+        <input type="email" name="student_email" />
+      </label>
+      <label>File
+        <input type="file" name="file" required />
+      </label>
+      <button type="submit" class="btn">Upload</button>
+    </form>
+  </section>
+  <section>
+    <h3>Submissions</h3>
+    {% if submissions %}
+      <ul class="list">
+        {% for s in submissions %}
+          <li>
+            <a href="/submissions/{{ s.id }}/file">{{ s.original_filename }}</a>
+            <span class="muted">by {{ s.student_name }} • {{ s.file_size_bytes }} bytes</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="muted">No submissions yet.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}
